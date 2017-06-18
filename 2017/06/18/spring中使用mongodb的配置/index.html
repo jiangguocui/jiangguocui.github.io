@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2017/6 | 果果Blog</title>
+  <title>在spring中使用mongodb | 果果Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -166,96 +166,50 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/06/18/mysql中存储层级结构的数据/">mysql中存储层级结构的数据</a></h4>
-                            
-                            <p><time datetime="2017-06-18T08:47:28.000Z"><a href="/2017/06/18/mysql中存储层级结构的数据/">2017-06-18</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/06/18/“durid配置”/">“durid配置”</a></h4>
-                            
-                            <p><time datetime="2017-06-18T08:36:05.000Z"><a href="/2017/06/18/“durid配置”/">2017-06-18</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/06/18/MongoDB/">MongoDB</a></h4>
-                            
-                            <p><time datetime="2017-06-18T08:36:05.000Z"><a href="/2017/06/18/MongoDB/">2017-06-18</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/06/18/spring中使用mongodb的配置/">在spring中使用mongodb</a></h4>
-                            
-                            <p><time datetime="2017-06-18T08:36:05.000Z"><a href="/2017/06/18/spring中使用mongodb的配置/">2017-06-18</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-06-18T08:36:05.000Z" itemprop="datePublished">
+          2017-06-18
+      </time>
+    
+</span>
+                <h1>在spring中使用mongodb</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<p>在spring中使用mongodb，首先在maven中需要引入mongo的相关依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;dependency&gt;</div><div class="line">			&lt;groupId&gt;org.springframework.data&lt;/groupId&gt;</div><div class="line">			&lt;artifactId&gt;spring-data-mongodb&lt;/artifactId&gt;</div><div class="line">			&lt;version&gt;1.9.4.RELEASE&lt;/version&gt;</div><div class="line"></div><div class="line">		&lt;/dependency&gt;</div><div class="line">		&lt;dependency&gt;</div><div class="line">			&lt;groupId&gt;org.mongodb&lt;/groupId&gt;</div><div class="line">			&lt;artifactId&gt;mongo-java-driver&lt;/artifactId&gt;</div><div class="line">			&lt;version&gt;3.3.0&lt;/version&gt;</div><div class="line">		&lt;/dependency&gt;</div></pre></td></tr></table></figure>
+<p>其次配置mongo的相关参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mongo.dbName=name</div><div class="line">mongo.uri=</div><div class="line">mongo.minConnectionsPerHost=10</div><div class="line">mongo.maxConnectionsPerHost=50</div></pre></td></tr></table></figure>
+<p>使用javaconfig方式进行配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">@Configuration</div><div class="line">@PropertySource(value = &#123; &quot;classpath:persistence.properties&quot; &#125;)</div><div class="line">public class PersistenceConfig &#123;</div><div class="line"></div><div class="line">	@Resource</div><div class="line">	private Environment env;</div><div class="line"></div><div class="line">	@Value(&quot;$&#123;mongo.dbName&#125;&quot;)</div><div class="line">	private String mongoDbName;</div><div class="line"></div><div class="line">	@Value(&quot;$&#123;mongo.uri&#125;&quot;)</div><div class="line">	private String mongoUri;</div><div class="line">	</div><div class="line">	@Value(&quot;$&#123;mongo.minConnectionsPerHost&#125;&quot;)</div><div class="line">    private int minConnectionsPerHost;</div><div class="line"></div><div class="line">    @Value(&quot;$&#123;mongo.maxConnectionsPerHost&#125;&quot;)</div><div class="line">    private int maxConnectionsPerHost;</div><div class="line"></div><div class="line"></div><div class="line">	@Bean</div><div class="line">    public MongoDbFactory  mongoDbFactory() throws Exception &#123;</div><div class="line">	    final MongoClientOptions.Builder builder = new MongoClientOptions.Builder();</div><div class="line">        builder.minConnectionsPerHost(minConnectionsPerHost);</div><div class="line">        builder.connectionsPerHost(maxConnectionsPerHost);</div><div class="line"></div><div class="line">        final MongoClientURI mongoClientURI = new MongoClientURI(mongoUri, builder);</div><div class="line"></div><div class="line">        return new SimpleMongoDbFactory(new MongoClient(mongoClientURI), mongoDbName);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    public MongoTemplate mongoTemplate() throws Exception &#123;</div><div class="line">        MappingMongoConverter converter = new MappingMongoConverter(new DefaultDbRefResolver(mongoDbFactory()), new MongoMappingContext());</div><div class="line">        converter.setTypeMapper(new DefaultMongoTypeMapper(null));</div><div class="line">        return new MongoTemplate(mongoDbFactory(), converter);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>mongodb配置参数详解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#对mongo实例来说，每个host允许链接的最大链接数,这些链接空闲时会放入池中,如果链接被耗尽，任何请求链接的操作会被阻塞等待链接可用,推荐配置10</div><div class="line">connectionsPerHost=10</div><div class="line">#当链接空闲时,空闲线程池中最大链接数</div><div class="line">minPoolsSize=5</div><div class="line">#此参数跟connectionsPerHost的乘机为一个线程变为可用的最大阻塞数，超过此乘机数之后的所有线程将及时获取一个异常.eg.connectionsPerHost=10 and threadsAllowedToBlockForConnectionMultiplier=5,最多50个线程等级一个链接，推荐配置为5</div><div class="line">threadsAllowedToBlockForConnectionMultiplier=5</div><div class="line">#一个线程等待链接可用的最大等待毫秒数，0表示不等待，负数表示等待时间不确定，推荐配置120000</div><div class="line">maxWaitTime=120000</div><div class="line">#链接超时的毫秒数,0表示不超时,此参数只用在新建一个新链接时，推荐配置10,000.</div><div class="line">connectTimeout=10000</div><div class="line">#此参数表示socket I/O读写超时时间,推荐为不超时，即 0    Socket.setSoTimeout(int)</div><div class="line">socketTimeout=0</div><div class="line">#该标志用于控制socket保持活动的功能，通过防火墙保持连接活着</div><div class="line">socketKeepAlive=false</div><div class="line">#true:假如链接不能建立时,驱动将重试相同的server,有最大的重试次数,默认为15次,这样可以避免一些server因为一些阻塞操作零时down而驱动抛出异常,这个对平滑过度到一个新的master,也是很有用的,注意:当集群为复制集时,驱动将在这段时间里,尝试链接到旧的master上,而不会马上链接到新master上</div><div class="line">#false 当在进行socket读写时,不会阻止异常抛出,驱动已经有自动重建破坏链接和重试读操作. 推荐配置false</div><div class="line">autoConnectRetry=false</div><div class="line">#重新打开链接到相同server的最大毫秒数,推荐配置为0，如果 autoConnectRetry=true,表示时间为15s</div><div class="line">#com.jd.mongodbclient2.mongo.JDClientMongo.maxAutoConnectRetryTime=false</div><div class="line">#表示当没有手动关闭游标时,是否有一个自动释放游标对象的方法,如果你总是很小心的关闭游标,则可以将其设为false 推荐配置true</div><div class="line">#com.jd.mongodbclient2.mongo.JDClientMongo.cursorFinalizerEnabled=true</div><div class="line"></div><div class="line">#安全模式</div><div class="line">com.jd.mongodbclient2.driver.MongoDBDriver.safe=true</div><div class="line">#为true表示读写分离</div><div class="line">com.jd.mongodbclient2.driver.MongoDBDriver.slaveOk=false</div></pre></td></tr></table></figure>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2017/06/18/MongoDB/" style="float: left;">
+        ← MongoDB
+    </a>
+    
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 

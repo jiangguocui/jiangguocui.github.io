@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2017/6 | 果果Blog</title>
+  <title>MongoDB | 果果Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -166,96 +166,170 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>YOU'VE MADE A <span>BRAVE</span> DECISION, WELCOME.</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/06/18/mysql中存储层级结构的数据/">mysql中存储层级结构的数据</a></h4>
-                            
-                            <p><time datetime="2017-06-18T08:47:28.000Z"><a href="/2017/06/18/mysql中存储层级结构的数据/">2017-06-18</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/06/18/“durid配置”/">“durid配置”</a></h4>
-                            
-                            <p><time datetime="2017-06-18T08:36:05.000Z"><a href="/2017/06/18/“durid配置”/">2017-06-18</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/06/18/MongoDB/">MongoDB</a></h4>
-                            
-                            <p><time datetime="2017-06-18T08:36:05.000Z"><a href="/2017/06/18/MongoDB/">2017-06-18</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2017/06/18/spring中使用mongodb的配置/">在spring中使用mongodb</a></h4>
-                            
-                            <p><time datetime="2017-06-18T08:36:05.000Z"><a href="/2017/06/18/spring中使用mongodb的配置/">2017-06-18</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-06-18T08:36:05.000Z" itemprop="datePublished">
+          2017-06-18
+      </time>
+    
+</span>
+                <h1>MongoDB</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><h5 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h5><hr>
+<ul>
+<li>代表着不仅仅是SQL</li>
+<li>没有声明性查询语言</li>
+<li>没有预定义的模式<br>-键 - 值对存储，列存储，文档存储，图形数据库</li>
+<li>最终一致性，而非ACID属性</li>
+<li>非结构化和不可预知的数据</li>
+<li>CAP定理 </li>
+<li>高性能，高可用性和可伸缩性<h5 id="CAP定理"><a href="#CAP定理" class="headerlink" title="CAP定理"></a>CAP定理</h5></li>
+</ul>
+<hr>
+<p>CAP理论的核心是：一个分布式系统不可能同时很好的满足一致性，可用性和分区容错性这三个需求，最多只能同时较好的满足两个。</p>
+<p>因此，根据 CAP 原理将 NoSQL 数据库分成了满足 CA 原则、满足 CP 原则和满足 AP 原则三 大类</p>
+<p>CA - 单点集群，满足一致性，可用性的系统，通常在可扩展性上不太强大。</p>
+<p>CP - 满足一致性，分区容忍必的系统，通常性能不是特别高。</p>
+<p>AP - 满足可用性，分区容忍性的系统，通常可能对一致性要求低一些。</p>
+<h5 id="NoSQL的优点-缺点"><a href="#NoSQL的优点-缺点" class="headerlink" title="NoSQL的优点/缺点"></a>NoSQL的优点/缺点</h5><hr>
+<p>优点:</p>
+<ul>
+<li>高可扩展性</li>
+<li>分布式计算</li>
+<li>低成本</li>
+<li>架构的灵活性，半结构化数据</li>
+<li>没有复杂的关系</li>
+<li>缺点:</li>
+<li>没有标准化</li>
+<li>有限的查询功能（到目前为止）</li>
+<li>最终一致是不直观的程序<h5 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h5></li>
+</ul>
+<hr>
+<ul>
+<li>无数据结构限制</li>
+<li>没有表结构的概念，每条记录可以有完全不同的结构</li>
+<li>业务开发方便快捷</li>
+<li>sql数据库需要事先定义表结构再使用</li>
+</ul>
+<p><img src="http://note.youdao.com/yws/res/561/WEBRESOURCE5aaac9f3b4292d32bebb8466898614a9" alt="image"></p>
+<h5 id="MongoDB概念"><a href="#MongoDB概念" class="headerlink" title="MongoDB概念"></a>MongoDB概念</h5><hr>
+<p><img src="http://note.youdao.com/yws/res/565/WEBRESOURCE31bf3725f11bde174bf608819f0b354b" alt="image"></p>
+<h5 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h5><hr>
+<ul>
+<li>一个mongodb中可以建立多个数据库。</li>
+<li>MongoDB的默认数据库为”db”，该数据库存储在data目录中。</li>
+<li>MongoDB的单个实例可以容纳多个独立的数据库，每一个都有自己的集合和权限，不同的数据库也放置在不同的文件中。</li>
+</ul>
+<p>用show dbs来显示所有数据的列表<br><img src="http://note.youdao.com/yws/res/579/WEBRESOURCE2cc4465f49d31abf3bf82187c89f3c7e" alt="image"></p>
+<p>db表示当前数据对象或集合<br><img src="http://note.youdao.com/yws/res/582/WEBRESOURCEb57094d91e3ca8066070320b7e57678c" alt="image"><br>use用于指定一个数据库<br><img src="http://note.youdao.com/yws/res/585/WEBRESOURCE60f789de85874fb36ad2aac4ed41a969" alt="image"></p>
+<p>数据库也通过名字来标识。</p>
+<ul>
+<li>数据库名可以是满足以下条件的任意UTF-8字符串。</li>
+<li>不能是空字符串（””)。</li>
+<li>不得含有’ ‘（空格)、.、$、/、\和\0 - (空宇符)。</li>
+<li>应全部小写。</li>
+<li>最多64字节。</li>
+</ul>
+<h5 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h5><hr>
+<p>文档是MongoDB中最核心的概念，文档类就是关系型数据库中的每一行数据。</p>
+<p>在mongoDB中使用一种类JSON的BSON存储数据，bson就是在json的类型上新增了一些没有的数据类型</p>
+<p>所有存储在集合中的数据都是BSON格式。<br>BSON是一种类json的一种二进制形式的存储格式,简称Binary JSON</p>
+<p>MongoDB支持JS语法</p>
+<p>{ name :”tangqiang”}<br><img src="http://note.youdao.com/yws/res/593/WEBRESOURCEa265b10f20b2503cad936d5cd6df5d5b" alt="image"><br>需要注意的是：</p>
+<ul>
+<li>文档中的键/值对是有序的。</li>
+<li>文档中的值不仅可以是在双引号里面的字符串，还可以是其他几种数据类型（甚至可以是整个嵌入的文档)。</li>
+<li>MongoDB区分类型和大小写。</li>
+<li>MongoDB的文档不能有重复的键。</li>
+<li>文档的键是字符串。除了少数例外情况，键可以使用任意UTF-8字符。</li>
+<li>文档键命名规范：</li>
+<li>键不能含有\0 (空字符)。这个字符用来表示键的结尾。</li>
+<li>.和$有特别的意义，只有在特定环境下才能使用。</li>
+<li>以下划线”_”开头的键是保留的(不是严格要求的)。<h5 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h5></li>
+</ul>
+<hr>
+<p>集合就是一组文档的组合。</p>
+<p>{“name”:”tangqiang”} {“Name”,”wukong”,”type”:”hou”}</p>
+<p>集合名称必须以字母或下划线开头。</p>
+<p>集合名可以包含数字</p>
+<p>集合名称不能使美元符”$”，”$”是系统保留字符。</p>
+<p>集合的名字 最大不能超过128个字符 。</p>
+<p>另外，”.”号的使用在集合当中是允许的，它们被成为子集合(Subcollection)；比如你有一个blog集合，你可以使用blog.title，blog.content或者blog.author来帮组你更好地组织集合。</p>
+<h5 id="元数据"><a href="#元数据" class="headerlink" title="元数据"></a>元数据</h5><hr>
+<p><img src="http://note.youdao.com/yws/res/609/WEBRESOURCE98bbbdb6f5e9f8e45447da008428922a" alt="image"></p>
+<h5 id="capped-collections"><a href="#capped-collections" class="headerlink" title="capped collections"></a>capped collections</h5><hr>
+<p>固定大小的集合</p>
+<p>具有很高的性能以及队列过期的特性</p>
+<h5 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h5><hr>
+<p>语法格式</p>
+<pre><code>use DATABASE_NAME
+</code></pre><p><img src="http://note.youdao.com/yws/res/621/WEBRESOURCE542a69c709fddcc586adb97e7be8e771" alt="image"></p>
+<h5 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h5><hr>
+<p>语法格式</p>
+<pre><code>db.dropDatabase()
+</code></pre><p><img src="http://note.youdao.com/yws/res/628/WEBRESOURCE6362c768c38bde162a58bcfc8aafdd76" alt="image"></p>
+<h5 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h5><hr>
+<p>语法格式<br>用save（）或insert（）</p>
+<pre><code>db.COLLECTION_NAME.insert(document)
+</code></pre><p><img src="http://note.youdao.com/yws/res/638/WEBRESOURCEda9ab1df44335ebc00529878db5fa097" alt="image"></p>
+<h5 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h5><hr>
+<p>语法格式</p>
+<pre><code>db.collection.update(
+ &lt;query&gt;,
+  &lt;update&gt;,
+ {
+  upsert: &lt;boolean&gt;,
+  multi: &lt;boolean&gt;,
+  writeConcern: &lt;document&gt;
+ }
+)
+</code></pre><p>参数说明</p>
+<p>  query : update的查询条件，类似sql<br>  update查询内where后面的。</p>
+<p>update : update的对象和一些更新的操作符（如$,$inc…）等，也可以理解为sql update查询内set后面的</p>
+<p>upsert : 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</p>
+<p>multi : 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</p>
+<p>writeConcern :可选，抛出异常的级别。<br><img src="http://note.youdao.com/yws/res/650/WEBRESOURCEda8ba025563e9b75bb0f92fd8e0423fd" alt="image"></p>
+<h5 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h5><hr>
+<p>语法格式</p>
+<pre><code>db.collection.remove(
+ &lt;query&gt;,
+ &lt;justOne&gt;
+)
+</code></pre><p>参数说明：</p>
+<p>query :（可选）删除的文档的条件。</p>
+<p>justOne : （可选）如果设为 true 或 1，则只删除一个文档。</p>
+<p>writeConcern :（可选）抛出异常的级别。<br><img src="http://note.youdao.com/yws/res/661/WEBRESOURCEcd10bd90e5d20041d5591ce945f7312f" alt="image"></p>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2017/06/18/“durid配置”/" style="float: left;">
+        ← “durid配置”
+    </a>
+    
+    
+    <a class="pull-right" href="/2017/06/18/spring中使用mongodb的配置/">
+        在spring中使用mongodb →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
