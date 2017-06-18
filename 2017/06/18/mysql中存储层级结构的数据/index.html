@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>标签 | 果果Blog</title>
+  <title>mysql中存储层级结构的数据 | 果果Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="在实际应用中，我们常常需要将树型结构的数据存入到关系数据库中达到持久化，但是怎么将存入到数据库中。 目前有两种方法：  一是将其以邻接表的形式存入，也是以继承关系驱动的方式，其通常设计：{Node_id,Parent_id}  这种方式的设计非常直观简单，但是对其CRUD的操作都比较低效，因为是基于递归，递归过程不断访问数据库，每次数据库IO都是时间的花销。但是当树的规模比较小的时候，我们可以借助">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql中存储层级结构的数据">
+<meta property="og:url" content="http://yoursite.com/2017/06/18/mysql中存储层级结构的数据/index.html">
 <meta property="og:site_name" content="果果Blog">
-<meta property="og:updated_time" content="2017-06-15T14:14:01.195Z">
+<meta property="og:description" content="在实际应用中，我们常常需要将树型结构的数据存入到关系数据库中达到持久化，但是怎么将存入到数据库中。 目前有两种方法：  一是将其以邻接表的形式存入，也是以继承关系驱动的方式，其通常设计：{Node_id,Parent_id}  这种方式的设计非常直观简单，但是对其CRUD的操作都比较低效，因为是基于递归，递归过程不断访问数据库，每次数据库IO都是时间的花销。但是当树的规模比较小的时候，我们可以借助">
+<meta property="og:image" content="http://note.youdao.com/yws/res/1233/WEBRESOURCE1059c2948cd933352ada6a3976dd83a1">
+<meta property="og:image" content="http://note.youdao.com/yws/res/1249/WEBRESOURCE7b93d91cb53d7c3a77be24d0cf8f7467">
+<meta property="og:image" content="http://note.youdao.com/yws/res/1252/WEBRESOURCE927c4a0fe155774a05426eb0f51af6ec">
+<meta property="og:updated_time" content="2017-06-18T08:48:20.588Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签">
+<meta name="twitter:title" content="mysql中存储层级结构的数据">
+<meta name="twitter:description" content="在实际应用中，我们常常需要将树型结构的数据存入到关系数据库中达到持久化，但是怎么将存入到数据库中。 目前有两种方法：  一是将其以邻接表的形式存入，也是以继承关系驱动的方式，其通常设计：{Node_id,Parent_id}  这种方式的设计非常直观简单，但是对其CRUD的操作都比较低效，因为是基于递归，递归过程不断访问数据库，每次数据库IO都是时间的花销。但是当树的规模比较小的时候，我们可以借助">
+<meta name="twitter:image" content="http://note.youdao.com/yws/res/1233/WEBRESOURCE1059c2948cd933352ada6a3976dd83a1">
   
     <link rel="alternative" href="/atom.xml" title="果果Blog" type="application/atom+xml">
   
@@ -162,27 +169,58 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-mysql中存储层级结构的数据" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      标签
+      mysql中存储层级结构的数据
     </h1>
   
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2017-06-15T14:12:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
+        <a href="/2017/06/18/mysql中存储层级结构的数据/" class="archive-article-date">
+  	<time datetime="2017-06-18T08:47:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>在实际应用中，我们常常需要将树型结构的数据存入到关系数据库中达到持久化，但是怎么将存入到数据库中。</p>
+<p>目前有两种方法：</p>
+<hr>
+<p>一是将其以邻接表的形式存入，也是以继承关系驱动的方式，其通常设计：{Node_id,Parent_id}</p>
+<p><img src="http://note.youdao.com/yws/res/1233/WEBRESOURCE1059c2948cd933352ada6a3976dd83a1" alt="image"></p>
+<p>这种方式的设计非常直观简单，但是对其CRUD的操作都比较低效，因为是基于递归，递归过程不断访问数据库，每次数据库IO都是时间的花销。但是当树的规模比较小的时候，我们可以借助缓存的机制来做优化。</p>
+<hr>
+<p>二是嵌套集合模型，也就是左右值编码，其实左右值编码的左右值是根据树的前序遍历的顺序。</p>
+<p><img src="http://note.youdao.com/yws/res/1249/WEBRESOURCE7b93d91cb53d7c3a77be24d0cf8f7467" alt="image"></p>
+<p>其数据库中的设计</p>
+<p><img src="http://note.youdao.com/yws/res/1252/WEBRESOURCE927c4a0fe155774a05426eb0f51af6ec" alt="image"></p>
+<p>其相关CRUD操作<br>建表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">DROP TABLE IF EXISTS `nested`;</div><div class="line">CREATE TABLE `nested` (</div><div class="line">  `id` int(11) NOT NULL AUTO_INCREMENT,</div><div class="line">  `name` varchar(32) NOT NULL,</div><div class="line">  `left` int(11) unsigned zerofill NOT NULL,</div><div class="line">  `right` int(11) unsigned zerofill NOT NULL,</div><div class="line">  PRIMARY KEY (`id`)</div><div class="line">) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;</div></pre></td></tr></table></figure>
+<p>插入子节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">select @baseIndex:= `left` from nested where name = &apos;meat&apos;;</div><div class="line">UPDATE nested SET `right` = `right` + 2 WHERE `right` &gt; @baseIndex;</div><div class="line">UPDATE nested SET `left` = `left` + 2 WHERE `left` &gt; @baseIndex;</div><div class="line"></div><div class="line">INSERT INTO nested (name, `left`, `right`) VALUES</div><div class="line">  (&apos;pork&apos;, @baseIndex + 1, @baseIndex + 2);</div></pre></td></tr></table></figure>
+<p>删除节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">-- 当删除一个叶节点时，移除该节点并将右编码比其大的编码减2.</div><div class="line"></div><div class="line">-- 当删除一个节点及其子节点时，删除其所有节点并将右侧节点的左右编码的减少该节点的宽度。</div><div class="line"></div><div class="line"></div><div class="line">select </div><div class="line"> @nodeLeft := `left`,</div><div class="line">  @nodeRight := `right`,</div><div class="line">  @nodeWidth := `right` - `left` + 1</div><div class="line">FROM nested</div><div class="line">WHERE name = &apos;fruits&apos;;</div><div class="line">DELETE FROM nested WHERE `left` BETWEEN @nodeLeft AND @nodeRight;</div><div class="line">UPDATE nested SET `right` = `right` - @nodeWidth WHERE `right` &gt; @nodeRight;</div><div class="line">UPDATE nested SET `left` = `left` - @nodeWidth WHERE `left` &gt; @nodeRight;</div></pre></td></tr></table></figure>
+<p>获取整棵树</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">SELECT</div><div class="line">	CONCAT(REPEAT(&apos; &apos;,COUNT(p.name)-1),n.name) name </div><div class="line">from </div><div class="line">	nested p,</div><div class="line">	nested n</div><div class="line">where </div><div class="line">	n.`left` BETWEEN p.`left` AND p.`right`</div><div class="line">GROUP BY n.`name`</div><div class="line">ORDER BY n.`left`;</div></pre></td></tr></table></figure>
+<p>获取所有叶子节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select id,name from nested where `right` = `left` + 1;</div></pre></td></tr></table></figure>
+<p>获取节点完整路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">select p.name</div><div class="line">from </div><div class="line">	nested n,</div><div class="line">	nested p</div><div class="line">where </div><div class="line">	n.`left` BETWEEN p.`left` and p.`right`</div><div class="line">	AND n.`name` = &apos;cow&apos;</div><div class="line">	ORDER BY p.`left`;</div></pre></td></tr></table></figure>
+<p>某个节点到底有多少个子孙节点呢？我们通过这样的一个计算公式来计算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">子孙总数 = (右值 – 左值– 1) / 2</div></pre></td></tr></table></figure>
+<p>其优点：</p>
+<pre><code>实现了无限分组，并且查询条件是基于整形的比较，效率很高
+</code></pre><p>其缺点：</p>
+<pre><code>节点的添加，修改和删除的代价比较大，将涉及更多节点的改动。稍有不慎整个
+树就有可能毁掉，因此，在对树进行大规模的改动时，借助临时表为中介。以查
+询为主的更适合这种存储方式
+</code></pre>
       
 
       
@@ -261,7 +299,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/tags/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/18/mysql中存储层级结构的数据/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -273,9 +311,27 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/18/“durid配置”/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“durid配置”</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
+
+
+  
+  
+  
+
+  
+
+  
 
 
           </div>
@@ -298,7 +354,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
